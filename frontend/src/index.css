@@ -1,0 +1,282 @@
+* {
+  box-sizing: border-box;
+}
+
+body{
+  background-color: rgb(218, 224, 230);
+  font-family: "verdana", "arial", "helvetica", "sans-serif";
+  padding: 0;
+  margin: 0;
+}
+a{
+  text-decoration: none;
+  color:black;
+  margin: 0;
+}
+/* Alters all states of anchors */
+a:visited { text-decoration: none;}
+a:hover { text-decoration: none;  }
+a:focus { text-decoration: none;  }
+a:hover, a:active { text-decoration: none;  }
+
+
+.header{
+  width: 100%;
+  background-color: white;
+  height: 50px;
+  display: grid;
+  grid-template-columns: 1.5fr auto 1fr 1fr;
+  grid-template-rows: 100%;
+
+}
+
+i{
+  font-size: 32px;
+  color: orangered;
+  padding: 8px;
+  align-self: center; 
+}
+
+.reddit-clone{
+  grid-column: 1;
+  align-items: center;
+  display: flex;
+  justify-self: start;
+  
+}
+.reddit-clone p{
+  display: inline;
+  font-size: 18px;
+}
+
+.sign-up{
+  grid-column: 3;
+  justify-self: center;
+  align-self: center;
+}
+
+.log-in{
+  grid-column: 4;
+  justify-self: center;
+  align-self: center;
+}
+
+/* Posts */
+.container{
+  width: 90%;
+  margin: 0 auto;
+  margin-top: 25px;
+  background-color: rgb(255, 255, 255);
+  
+  border-left: 1px solid black;
+  border-right: 1px solid black;
+  border-top: 1px solid black;
+}
+.post{
+  display: grid;
+  grid-template-columns: 1fr .5fr 10fr;
+  grid-template-rows: 1fr .5fr 1fr;
+  grid-row-gap: 0;
+  grid-column-gap: 0;
+}
+  /* Prevents doubleclick from highlighting elements */
+.upvote, .downvote{
+  -webkit-user-select: none;        
+  -moz-user-select: none;
+  -ms-user-select: none; 
+}
+
+.upvote{
+  grid-column: 1;
+  grid-row: 1;
+  justify-self: center;
+  align-self: center;
+}
+
+.votes{
+  grid-column: 1;
+  grid-row: 2;
+  justify-self: center;
+  align-self: center;
+}
+
+.downvote{
+  grid-column: 1;
+  grid-row: 3;
+  justify-self: center;
+  align-self: center;
+}
+
+.title{
+  grid-column: 3;
+  grid-row: 1;
+  font-size: 24px;
+  font-weight: bold;
+  align-self: center;
+}
+.submitted{
+  grid-column: 3;
+  grid-row: 3;
+}
+
+.buttons{
+  font-size:3em;
+  padding: 0;
+  margin: 0;
+  cursor: pointer;
+}
+
+h1{
+  text-align: center;
+}
+
+/* Side Bar */
+ul{
+  list-style-position: inside;
+  text-align: left;
+}
+
+#side-div{
+  padding: 10px;
+
+}
+
+#profile-box{
+  display: none;
+}
+
+.side-box{
+
+  padding: 5px 15px 35px 15px;
+  margin-right: 10px;
+  background-color: rgb(255, 255, 255);
+  border-radius: 8px;
+}
+
+#side-logo{
+  font-size: 35px;
+}
+#button-div{
+  display: flex;
+  flex-flow: column wrap;
+  align-items: center;
+
+}
+
+#posts-btn{
+  background-color: rgb(0, 121, 211);
+  color: rgb(255, 255, 255);
+  fill: rgb(255, 255, 255);
+  border-color: rgb(0, 121, 211);
+}
+
+#create-btn{
+  background-color: tomato;
+  color: rgb(255, 255, 255);
+  fill: rgb(255, 255, 255);
+  border-color: tomato;
+}
+.nav-buttons{
+  width: 85%;
+  border-radius: 3px;
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+/* Create Form Styles*/
+#form-container{
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  align-items: center;
+  border-bottom: 1px solid black;
+  padding: 0px 10px 50px 10px;
+
+}
+
+#form-input{
+  display: block;
+  height: 40px;
+  width: 50%;
+  border: 1px solid black;
+  margin-right: 15px;
+  padding: 10px;
+}
+
+#form-submit{
+
+  background-color: dodgerblue;
+  color: white;
+  border: 1px solid #ddd;
+  padding: 13px;
+ 
+}
+
+#create-side-box{
+  padding: 10px;
+}
+
+
+
+
+/* 
+ Media Query for Larger Screens
+*/
+
+@media screen and (min-width: 1400px) {
+  .header{
+    grid-template-columns: 1.5fr 4fr 1fr 1fr;
+  }
+  .reddit-clone{
+    margin-left: 20px;
+  }
+  .container{
+  
+    width: 75%;
+    margin-left: 25px;
+    margin-right: 80px;
+
+  }
+
+  #side-div{
+    padding: 0;
+  }
+  .side-box{
+    width: 300px;
+    border-radius: 8px;
+    border: 2px solid black;
+    height: 250px;
+    padding: 15px;
+    margin-bottom: 50px;
+    
+  
+  }
+  .float-right{
+    float: right;
+  }
+
+
+  #create-side-box{
+    float: right;
+    margin-top: 25px;
+    padding: 0;
+  }
+
+  #profile-box{
+    display: block;
+  }
+}
+/* For extra small screens */
+@media screen and (device-aspect-ratio: 40/71) {
+  .header p{
+
+    font-size: 14px;
+  }
+}
+
+@media screen and (device-width: 360px) and (device-height: 640px) and (-webkit-device-pixel-ratio: 3){
+    .header p{
+
+    font-size: 14px;
+  }
+}
