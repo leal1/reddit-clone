@@ -32,12 +32,8 @@ db.on('error', console.error.bind(console, 'MongoDB connection error: '));
 // Get POSTS
 router.get("/getData", (req, res) => {
     Post.find({}).exec()
-    .then((data) => {
-        return res.json({success: true, data: data})
-    })
-    .catch((err) =>{
-        return res.json({success: false, error: err});
-    });
+    .then((data) => { return res.json({success: true, data: data}); })
+    .catch((err) =>{ return res.json({success: false, error: err}); });
 });
 // Create Post
 router.post("/putData", (req,res) => {
@@ -54,12 +50,8 @@ router.post("/putData", (req,res) => {
     // Set title of post and save into DB
     post.title = title;
     post.save()
-    .then(()=> {
-        return res.json({success: true});
-    })
-    .catch(err => {
-        return res.json({success: false, error: err});
-    });
+    .then(()=> { return res.json({success: true}); })
+    .catch(err => { return res.json({success: false, error: err}); });
 });
 
 // Update Post (upvote/downvote)
@@ -68,12 +60,8 @@ router.post("/updateData", (req,res) => {
     // console.log(mID);
     const update = req.body.update;
     Post.findOneAndUpdate({"_id": mID}, update).exec()
-    .then(() => {
-      return res.json({success: true});
-    })
-    .catch((err) => {
-      return res.json({success: false, error: err});
-    });
+    .then(() => { return res.json({success: true}); })
+    .catch((err) => { return res.json({success: false, error: err}); });
 
 });
 
